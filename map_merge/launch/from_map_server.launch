@@ -15,12 +15,12 @@ roslaunch multirobot_map_merge from_map_server.launch map1:=PATH_TO_m-explore-ex
 
   <node pkg="map_server" type="map_server" name="robot1_publisher" args="$(arg map1)" output="screen">
     <param name="frame_id" value="robot1"/>
-    <remap from="map" to="/robot1/map"/>
+    <remap from="map" to="robot1/robot1/map"/>
     <remap from="map_metadata" to="/robot1/map_metadata"/>
   </node>
   <node pkg="map_server" type="map_server" name="robot2_publisher" args="$(arg map2)" output="screen">
     <param name="frame_id" value="robot2"/>
-    <remap from="map" to="/robot2/map"/>
+    <remap from="map" to="robot2/robot2/map"/>
     <remap from="map_metadata" to="/robot2/map_metadata"/>
   </node>
 
