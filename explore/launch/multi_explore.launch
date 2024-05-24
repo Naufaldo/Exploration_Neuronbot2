@@ -1,0 +1,48 @@
+<launch>
+  <!-- Arguments for robot 1 -->
+  <arg name="namespace1" default="robot1"/>
+  <arg name="base_frame1" default="robot1/base_footprint"/>
+  <arg name="map_topic1" default="robot1/map"/>
+  <arg name="map_updates_topic1" default="robot1/map_updates"/>
+
+  <!-- Arguments for robot 2 -->
+  <arg name="namespace2" default="robot2"/>
+  <arg name="base_frame2" default="robot2/base_footprint"/>
+  <arg name="map_topic2" default="robot2/map"/>
+  <arg name="map_updates_topic2" default="robot2/map_updates"/>
+
+  <!-- Exploration node for robot 1 -->
+  <group ns="$(arg namespace1)">
+    <node pkg="explore_lite" type="explore" respawn="false" name="explore" output="screen">
+      <param name="robot_base_frame" value="$(arg base_frame1)"/>
+      <param name="costmap_topic" value="$(arg map_topic1)"/>
+      <param name="costmap_updates_topic" value="$(arg map_updates_topic1)"/>
+      <param name="visualize" value="true"/>
+      <param name="planner_frequency" value="0.33"/>
+      <param name="progress_timeout" value="30.0"/>
+      <param name="potential_scale" value="3.0"/>
+      <param name="orientation_scale" value="0.0"/>
+      <param name="gain_scale" value="1.0"/>
+      <param name="transform_tolerance" value="0.3"/>
+      <param name="min_frontier_size" value="0.75"/>
+    </node>
+  </group>
+
+  <!-- Exploration node for robot 2 -->
+  <group ns="$(arg namespace2)">
+    <node pkg="explore_lite" type="explore" respawn="false" name="explore" output="screen">
+      <param name="robot_base_frame" value="$(arg base_frame2)"/>
+      <param name="costmap_topic" value="$(arg map_topic2)"/>
+      <param name="costmap_updates_topic" value="$(arg map_updates_topic2)"/>
+      <param name="visualize" value="true"/>
+      <param name="planner_frequency" value="0.33"/>
+      <param name="progress_timeout" value="30.0"/>
+      <param name="potential_scale" value="3.0"/>
+      <param name="orientation_scale" value="0.0"/>
+      <param name="gain_scale" value="1.0"/>
+      <param name="transform_tolerance" value="0.3"/>
+      <param name="min_frontier_size" value="0.75"/>
+    </node>
+  </group>
+
+</launch>
