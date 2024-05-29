@@ -2,13 +2,13 @@
   <!-- Arguments for robot 1 -->
   <arg name="namespace1" default="robot1"/>
   <arg name="base_frame1" default="robot1/base_footprint"/>
-  <arg name="map_topic1" default="robot1/map"/>
+  <arg name="map_topic1" default="/map_merge/map"/>
   <arg name="map_updates_topic1" default="robot1/map_updates"/>
 
   <!-- Arguments for robot 2 -->
   <arg name="namespace2" default="robot2"/>
   <arg name="base_frame2" default="robot2/base_footprint"/>
-  <arg name="map_topic2" default="robot2/map"/>
+  <arg name="map_topic2" default="/map_merge/map"/>
   <arg name="map_updates_topic2" default="robot2/map_updates"/>
 
   <!-- Exploration node for robot 1 -->
